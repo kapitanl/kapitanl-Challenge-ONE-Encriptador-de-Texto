@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="stylo.css">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <body>
+        <header>
+            <h1>ENCRIPTODERO Y DESENTCRIPTADOR DE TEXTO</h1>
+        </header>
+        <main>
+            <div class="contenedor">
+
+                <div class="section-texto" onclick="foco()">
+
+                    <label for="texto">Ingrese el texto aquí:</label>
+                    <textarea class="texto-principal" id="texto" type="text" > </textarea>
+                    
+                    <div class="botones">
+                        <button id="bt-encriptador" onclick="encriptar()">ENCRIPTADERO</button>
+                        <button onclick="desencriptar()">DESENCRIPTADOR</button>
+                    </div>
+                    
+
+                </div>
+
+                
+
+                <div id="section-mostrar-texto-OF">
+
+                    <textarea class="texto-optenido-of" id="texto-optenido" cols="30" rows="10"></textarea>
+                    <button class="boton-copiar-of" id="copiar" onclick="copiar()">Copiar</button>
+
+                    <div class="logo-presentacion-on" id="logo-presentacion">
+
+                        <img class="img-log" id="img-logo" src="img/logo-removebg-preview.png" alt="">
+                        <h3>Ningun mensaje fue encontrado</h3>
+                        <p>Ingrese el texto que desea encriptar o desencripar.</p>
+
+                    </div>
+
+                    
+                    
+                </div>
+
+
+            </div>
+            
+        </main>
+        
+        <footer>
+
+            <h2>&copy Creado por Abel Barrientos</h2>
+
+        </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <script>
+            var texto = document.getElementById("texto");
+            texto.focus();
+            var btCoiar = document.getElementById("copiar");
+            var imgLog = document.getElementById("logo-presentacion");
+            var textCopi = document.getElementById("texto-optenido");
+            
+
+            function encriptar(){
+                var texto1 = texto.value;
+                texto1 = texto1.toLowerCase();
+                var tex ="";
+                          
+                btCoiar.classList.add("boton-copiar-on");
+                btCoiar.classList.remove("boton-copiar-of");
+
+                imgLog.classList.add("logo-presentacion-of");
+                imgLog.classList.remove("logo-presentacion-on");
+                            
+                textCopi.classList.add("texto-optenido-on");
+                textCopi.classList.remove("texto-optenido-of");
+                            
+                texto.value="";
+                texto.focus();   
+
+                for (var i = 1 ; i <= 1 ;  i++) {
+
+                    for (var e = 0; e < texto1.length; e++) {
+
+                        if (texto1[e] == "e"){
+
+                            tex = tex + "enter";
+                
+                        }
+
+                        else if (texto1[e] == "i"){
+
+                            tex = tex +"imes";;
+
+                        }
+
+                        else if (texto1[e] == "a"){
+
+                            tex= tex + "ai";
+
+                        }
+
+                        else if (texto1[e] == "o"){
+
+                            tex= tex + "ober";
+
+
+                        }
+
+                        else if (texto1[e] == "u"){
+
+                            tex= tex + "ufat";
+
+                        }
+                        
+                        else{
+
+                            tex = tex + texto1[e];
+                    
+                        }
+
+                        
+                    
+                    }
+                
+
+                }
+
+
+
+                textCopi.value = tex;
+
+                texto.focus();
+
+            }
+
+
+            function desencriptar(){
+                var tex1 = texto.value;
+                tex1 = tex1.toLowerCase();
+                var tex = tex1;
+
+                btCoiar.classList.add("boton-copiar-on");
+                btCoiar.classList.remove("boton-copiar-of");
+
+                imgLog.classList.add("logo-presentacion-of");
+                imgLog.classList.remove("logo-presentacion-on");
+                            
+                textCopi.classList.add("texto-optenido-on");
+                textCopi.classList.remove("texto-optenido-of");
+
+                var contador = 0;
+                while (contador < 1){
+
+                    if (tex.includes("enter")){
+
+                        tex = tex.replace("enter", "e");
+
+                   }
+                    
+                    else if (tex.includes("imes")){
+
+                        tex = tex.replace("imes", "i");
+                    }
+
+                    else if (tex.includes("ai")){
+
+                        tex = tex.replace("ai", "a");
+                    }
+
+                    else if (tex.includes("ober")){
+
+                        tex = tex.replace("ober", "o");
+                    }
+
+                    else if (tex.includes("ufat")){
+
+                        tex = tex.replace("ufat", "u");
+                    }
+                    
+                    else{
+                        contador++
+                   }    
+
+                }
+                
+                textCopi.value = tex;
+
+            }
+
+            function foco(){
+                var texto = document.getElementById("texto");
+                texto.focus();
+
+            }
+
+            function copiar() {
+                            
+                textCopi.focus();
+                document.execCommand("selectAll");
+                document.execCommand("copy");
+
+            }
+
+            texto.focus();
+        </script>
+
+    </body>
+    
+
+</html>
